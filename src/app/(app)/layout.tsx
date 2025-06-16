@@ -1,7 +1,6 @@
 import { Header } from '@/components/header'
 import { Separator } from '@/components/ui/separator'
 import type { PropsWithChildren } from 'react'
-import { ScrollButton } from './_components/scroll-button'
 
 export default function AppLayout({ children }: PropsWithChildren) {
   return (
@@ -10,7 +9,7 @@ export default function AppLayout({ children }: PropsWithChildren) {
       <Separator />
       {children}
 
-      <ScrollButton />
+      {/* <ScrollButton /> */}
     </div>
   )
 }

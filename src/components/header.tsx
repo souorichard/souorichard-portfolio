@@ -1,12 +1,42 @@
+import { Code } from 'lucide-react'
 import { ThemeSwitcher } from './theme-switcher'
-import { Avatar, AvatarImage } from './ui/avatar'
+import { Button } from './ui/button'
+import { NavLink } from './nav-link'
+
+const navLinks = [
+  {
+    href: '/',
+    label: 'Home',
+  },
+  {
+    href: '/about',
+    label: 'About',
+  },
+  {
+    href: '/projects',
+    label: 'Projects',
+  },
+]
 
 export function Header() {
   return (
     <header className="flex items-center justify-between">
-      <Avatar className="size-8 border-2 border-sky-500">
-        <AvatarImage src="https://github.com/souorichard.png" />
-      </Avatar>
+      <div className="w-10 h-7 rounded-full bg-gradient-to-br from-sky-500 to-violet-500 flex items-center justify-center">
+        <Code className="size-4" />
+      </div>
+
+      <nav className="flex items-center gap-4">
+        {navLinks.map((link) => (
+          <Button
+            key={link.label}
+            variant="ghost"
+            className="data-[current=true]:text-sky-500 data-[current=true]:font-semibold data-[current=false]:font-normal"
+            asChild
+          >
+            <NavLink href={link.href}>{link.label}</NavLink>
+          </Button>
+        ))}
+      </nav>
 
       <ThemeSwitcher />
     </header>
