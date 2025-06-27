@@ -1,3 +1,10 @@
+import { HomeSection } from './_components/home-section'
+
 export default function Home() {
-  return <main>App</main>
+  return (
+    <div>
+      <HomeSection />
+      asd
+    </div>
+  )
 }
