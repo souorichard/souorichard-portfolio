@@ -29,7 +29,11 @@ export function SectionHeader({ children }: PropsWithChildren) {
 }
 
 export function SectionTitle({ children }: PropsWithChildren) {
-  return <h3 className="text-2xl font-bold text-center">{children}</h3>
+  return (
+    <h3 className="text-2xl font-bold text-center tracking-widest">
+      {children}
+    </h3>
+  )
 }
 
 export function SectionDescription({ children }: PropsWithChildren) {
