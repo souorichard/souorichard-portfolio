@@ -7,7 +7,7 @@ export function HomeSection() {
   return (
     <section className="relative h-screen mx-auto px-5 py-20 flex justify-center items-center bg-[url(/hero.jpg)] bg-cover">
       <div className="w-full max-w-[1200px] flex flex-col justify-center items-center gap-7">
-        <h1 className="text-[2.5rem] font-bold tracking-widest">
+        <h1 className="text-[2.5rem] font-bold tracking-widest text-center">
           HEY, I'M RICHARD RODRIGUES
         </h1>
 
