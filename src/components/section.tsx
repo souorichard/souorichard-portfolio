@@ -1,12 +1,13 @@
+import { cn } from '@/lib/utils'
 import { ComponentProps, PropsWithChildren, ReactNode } from 'react'
 
 interface SectionProps extends ComponentProps<'section'> {
   children: ReactNode
 }
 
-export function Section({ children, ...props }: SectionProps) {
+export function Section({ children, className, ...props }: SectionProps) {
   return (
-    <section className="px-5 py-20" {...props}>
+    <section className={cn('px-5 py-20', className)} {...props}>
       {children}
     </section>
   )

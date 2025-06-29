@@ -7,6 +7,7 @@ import {
 } from '@/components/section'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
+import Link from 'next/link'
 
 const skills = [
   {
@@ -79,29 +80,31 @@ export function AboutSection() {
         <div className="w-full grid grid-cols-2 gap-20">
           <div className="space-y-7">
             <h5 className="text-xl font-semibold">Get to know me!</h5>
-            <p className="text-sm font-light text-muted-foreground text-pretty">
+            <p className="text-sm text-muted-foreground text-pretty">
               I'm a{' '}
-              <span className="font-medium">
+              <span className="text-foreground/80">
                 Frontend Focused Web Developer
               </span>{' '}
               building and managing the Front-end of Websites and Web
               Applications that leads to the success of the overall product.
               Check out some of my work in the{' '}
-              <span className="font-medium">Projects</span> section. <br />
+              <span className="text-foreground/80">Projects</span> section.{' '}
+              <br />
               <br /> I also like sharing content related to the stuff that I
               have learned over the years in Web Development so it can help
               other people of the Dev Community. Feel free to Connect or Follow
               me on my Linkedin and Instagram where I post useful content
-              related to <span className="font-medium">
-                Web Development
-              </span>{' '}
-              and Programming. <br />
+              related to{' '}
+              <span className="text-foreground/80">Web Development</span> and
+              Programming. <br />
               <br /> I'm open to <span className="font-medium">Web</span>{' '}
               opportunities where I can contribute, learn and grow. If you have
               a good opportunity that matches my skills and experience then
               don't hesitate to <span className="font-medium">contact</span> me.
             </p>
-            <Button>CONTACT ME</Button>
+            <Button asChild>
+              <Link href="/#contact">CONTACT ME</Link>
+            </Button>
           </div>
           <div className="space-y-7">
             <h5 className="text-xl font-semibold">My skills</h5>
