@@ -21,9 +21,7 @@ export async function ContactSection() {
           </SectionDescription>
         </SectionHeader>
 
-        <div className="w-2/3 p-10 bg-background border rounded-xl">
-          <ContactForm />
-        </div>
+        <ContactForm />
       </SectionContent>
     </Section>
   )

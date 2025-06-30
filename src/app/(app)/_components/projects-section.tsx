@@ -33,17 +33,19 @@ const pinnedRepositories = [
 export async function ProjectsSection() {
   const response = await getRepositories()
 
-  const repositories = response.slice(0, 4).map((repo) => {
-    const pinned = pinnedRepositories.find((item) => item.name === repo.name)
+  const filteredRepositories = response.filter((repo) =>
+    pinnedRepositories.some((pinned) => pinned.name === repo.name),
+  )
+
+  const repositories = filteredRepositories.map((repo) => {
+    // const pinned = pinnedRepositories.find((item) => item.name === repo.name)
 
     return {
       id: repo.id,
       name: repo.name,
       description: repo.description,
       url: repo.html_url,
-      image:
-        pinned?.image ||
-        `https://og-image.vercel.app/${encodeURIComponent(repo.name)}.png`, // fallback
+      image: `https://og-image.vercel.app/${encodeURIComponent(repo.name)}.png`, // fallback
     }
   })
 
@@ -59,23 +61,31 @@ export async function ProjectsSection() {
           </SectionDescription>
         </SectionHeader>
 
-        <div className="w-full grid grid-cols-2 gap-20">
+        <div className="w-full grid grid-col-1 md:grid-cols-2 gap-20">
           {repositories.map((repository) => {
             return (
-              <div key={repository.id} className="flex items-center gap-7">
+              <div
+                key={repository.id}
+                className="flex flex-col lg:flex-row lg:items-center gap-7"
+              >
                 <Image
                   src={repository.image}
                   width={500}
                   height={200}
-                  className="w-1/2 h-50 bg-secondary rounded-md"
+                  className="w-full lg:w-1/2 h-auto bg-secondary rounded-md object-cover"
                   alt={repository.name}
                 />
-                <div className="w-1/2 space-y-4">
+                <div className="lg:w-1/2 space-y-4">
                   <h6 className="font-semibold">{repository.name}</h6>
                   <p className="text-xs text-muted-foreground text-pretty">
                     {repository.description || 'No description'}
                   </p>
-                  <Button size="sm" variant="outline" asChild>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="w-full lg:w-fit"
+                    asChild
+                  >
                     <a href={repository.url} target="_blank">
                       View details
                       <ArrowUpRight className="size-4" />

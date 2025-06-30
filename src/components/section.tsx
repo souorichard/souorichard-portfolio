@@ -7,7 +7,7 @@ interface SectionProps extends ComponentProps<'section'> {
 
 export function Section({ children, className, ...props }: SectionProps) {
   return (
-    <section className={cn('px-5 py-20', className)} {...props}>
+    <section className={cn('px-10 py-20', className)} {...props}>
       {children}
     </section>
   )
@@ -31,7 +31,7 @@ export function SectionHeader({ children }: PropsWithChildren) {
 
 export function SectionTitle({ children }: PropsWithChildren) {
   return (
-    <h3 className="text-2xl font-bold text-center tracking-widest">
+    <h3 className="text-xl lg:text-2xl font-bold text-center tracking-widest">
       {children}
     </h3>
   )

@@ -77,9 +77,11 @@ export function AboutSection() {
           </SectionDescription>
         </SectionHeader>
 
-        <div className="w-full grid grid-cols-2 gap-20">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-20">
           <div className="space-y-7">
-            <h5 className="text-xl font-semibold">Get to know me!</h5>
+            <h5 className="text-lg lg:text-xl font-semibold">
+              Get to know me!
+            </h5>
             <p className="text-sm text-muted-foreground text-pretty">
               I'm a{' '}
               <span className="text-foreground/80">
