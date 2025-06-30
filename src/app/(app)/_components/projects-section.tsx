@@ -56,8 +56,9 @@ export async function ProjectsSection() {
           <SectionTitle>PROJECTS</SectionTitle>
           <Separator className="!w-7 !h-1 bg-primary rounded-full" />
           <SectionDescription>
-            Here you will find some of the personal and clients projects that I
-            created with each project containing its own case study
+            Take a look at some personal projects where I’ve put my ideas into
+            practice, exploring different stacks and solving real problems
+            through code.
           </SectionDescription>
         </SectionHeader>
 

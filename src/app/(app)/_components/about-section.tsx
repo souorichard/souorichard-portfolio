@@ -85,24 +85,28 @@ export function AboutSection() {
             <p className="text-sm text-muted-foreground text-pretty">
               I'm a{' '}
               <span className="text-foreground/80">
-                Frontend Focused Web Developer
+                Full-Stack Web Developer
               </span>{' '}
-              building and managing the Front-end of Websites and Web
-              Applications that leads to the success of the overall product.
-              Check out some of my work in the{' '}
+              passionate about building scalable and performant applications,
+              from designing robust APIs to creating seamless and responsive
+              user interfaces. Check out some of my recent work in the{' '}
               <span className="text-foreground/80">Projects</span> section.{' '}
               <br />
-              <br /> I also like sharing content related to the stuff that I
-              have learned over the years in Web Development so it can help
-              other people of the Dev Community. Feel free to Connect or Follow
-              me on my Linkedin and Instagram where I post useful content
-              related to{' '}
-              <span className="text-foreground/80">Web Development</span> and
-              Programming. <br />
-              <br /> I'm open to <span className="font-medium">Web</span>{' '}
-              opportunities where I can contribute, learn and grow. If you have
-              a good opportunity that matches my skills and experience then
-              don't hesitate to <span className="font-medium">contact</span> me.
+              <br /> I enjoy sharing what I learn about backend and frontend
+              technologies, including frameworks, tools, and good practices that
+              help improve developer workflows. I'm active on platforms like{' '}
+              <span className="text-foreground/80">Linkedin</span> and{' '}
+              <span className="text-foreground/80">Instagram</span>, where I
+              post content related to{' '}
+              <span className="text-foreground/80">Web Development</span>,{' '}
+              <span className="text-foreground/80">APIs</span> and{' '}
+              <span className="text-foreground/80">Software Engineering</span>.{' '}
+              <br />
+              <br /> I'm open to opportunities where I can apply my skills, grow
+              alongside a team, and contribute to building meaningful digital
+              experiences. If you are looking for someone who's comfortable on
+              both sides of the stack, feel free to reach out and{' '}
+              <span className="font-medium">contact</span> me.
             </p>
             <Button asChild>
               <Link href="/#contact">CONTACT ME</Link>
