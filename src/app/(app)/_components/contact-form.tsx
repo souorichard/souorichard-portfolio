@@ -31,12 +31,34 @@ export function ContactForm() {
     resolver: zodResolver(contactFormSchema),
   })
 
-  async function handleSendMessage({ name, email, message }: ContactFormData) {
+  async function handleSendMessage({ name, message }: ContactFormData) {
     await new Promise((resolve) => setTimeout(resolve, 2000))
 
-    console.log({ name, email, message })
+    const subject = `Contato de ${name}`
 
-    toast.success('Message sent successfully!')
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=rodrigues.lpta@gmail.com&su=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(message)}`
+
+    const mailtoUrl = `mailto:rodrigues.lpta@gmail.com?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(message)}`
+
+    toast('Opening yout e-mail provider...')
+
+    try {
+      const win = window.open(gmailUrl, '_blank')
+
+      // fallback se o navegador bloqueou o popup ou o Gmail não abriu
+      setTimeout(() => {
+        if (!win || win.closed || typeof win.closed === 'undefined') {
+          window.location.href = mailtoUrl
+        }
+      }, 1500)
+    } catch {
+      // fallback imediato em caso de erro
+      window.location.href = mailtoUrl
+    }
 
     reset()
   }

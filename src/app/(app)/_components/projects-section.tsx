@@ -7,10 +7,46 @@ import {
 } from '@/components/section'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
+import { getRepositories } from '@/http/get-repositories'
 import { ArrowUpRight } from 'lucide-react'
-import Link from 'next/link'
+import Image from 'next/image'
 
-export function ProjectsSection() {
+const pinnedRepositories = [
+  {
+    name: 'github-finder',
+    image: '/projects/github-finder.png',
+  },
+  {
+    name: 'short-links-api',
+    image: '/projects/short-links-api.png',
+  },
+  {
+    name: 'tailwind-spotify',
+    image: '/projects/tailwind-spotify.png',
+  },
+  {
+    name: 'cash-io-web',
+    image: '/projects/cash-io-web.png',
+  },
+]
+
+export async function ProjectsSection() {
+  const response = await getRepositories()
+
+  const repositories = response.slice(0, 4).map((repo) => {
+    const pinned = pinnedRepositories.find((item) => item.name === repo.name)
+
+    return {
+      id: repo.id,
+      name: repo.name,
+      description: repo.description,
+      url: repo.html_url,
+      image:
+        pinned?.image ||
+        `https://og-image.vercel.app/${encodeURIComponent(repo.name)}.png`, // fallback
+    }
+  })
+
   return (
     <Section id="projects">
       <SectionContent>
@@ -24,23 +60,26 @@ export function ProjectsSection() {
         </SectionHeader>
 
         <div className="w-full grid grid-cols-2 gap-20">
-          {Array.from({ length: 4 }).map((_, index) => {
+          {repositories.map((repository) => {
             return (
-              <div key={index} className="flex items-center gap-7">
-                <div className="w-1/2 h-50 bg-secondary rounded-md" />
+              <div key={repository.id} className="flex items-center gap-7">
+                <Image
+                  src={repository.image}
+                  width={500}
+                  height={200}
+                  className="w-1/2 h-50 bg-secondary rounded-md"
+                  alt={repository.name}
+                />
                 <div className="w-1/2 space-y-4">
-                  <h6 className="font-semibold">Project name</h6>
+                  <h6 className="font-semibold">{repository.name}</h6>
                   <p className="text-xs text-muted-foreground text-pretty">
-                    Dopefolio is a successful Open-Source project that I created
-                    which have been featured on some of the biggest tech sites
-                    like CSS-Tricks, Hostinger, etc & used by thousands of
-                    developers globally
+                    {repository.description || 'No description'}
                   </p>
                   <Button size="sm" variant="outline" asChild>
-                    <Link href="#">
+                    <a href={repository.url} target="_blank">
                       View details
                       <ArrowUpRight className="size-4" />
-                    </Link>
+                    </a>
                   </Button>
                 </div>
               </div>

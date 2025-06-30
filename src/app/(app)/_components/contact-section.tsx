@@ -8,9 +8,9 @@ import {
 import { Separator } from '@/components/ui/separator'
 import { ContactForm } from './contact-form'
 
-export function ContactSection() {
+export async function ContactSection() {
   return (
-    <Section className="bg-[url(/hero.jpg)] bg-cover">
+    <Section id="contact" className="bg-[url(/hero.jpg)] bg-cover">
       <SectionContent>
         <SectionHeader>
           <SectionTitle>CONTACT ME</SectionTitle>
@@ -21,7 +21,7 @@ export function ContactSection() {
           </SectionDescription>
         </SectionHeader>
 
-        <div className="w-2/3 p-10 bg-background rounded-xl">
+        <div className="w-2/3 p-10 bg-background border rounded-xl">
           <ContactForm />
         </div>
       </SectionContent>
